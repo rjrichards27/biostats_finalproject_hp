@@ -9,7 +9,7 @@ This repo is for a Harry Potter dueling tournament application. The application 
 ## Format
 The application will be split up into many different functions and classes in order to complete the repetetive aspects of the game. For example, there will be a class for each Harry Potter character and a function that determines the winner of each battle. While there will be one main file where all the functions and classes are compiled to generate the actual gameplay. These code files will all be in the "code" folder, while they will all have their corresponding tests in the "test" folder.
 
-## Steps (detailed as issues)
+## Steps (detailed in Issues)
 1. Create Harry Potter character and spells dictionaries
 2. Generate a tournament bracket
 3. Write code for determining a duel's winner
