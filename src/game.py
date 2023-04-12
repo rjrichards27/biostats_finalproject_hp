@@ -23,6 +23,102 @@ class Game:
             print("Duel: ", duel_pairs[0]["Name"], "vs.", duel_pairs[1]["Name"])
             print("   ")
 
+    def duel(
+        character_group: tuple[dict[str, str], dict[str, str]],
+        spells: list[dict[str, str]],
+    ) -> int:
+        """Simulates a duel between two characters.
+
+        The character group is the pair (or multiple) of characters)
+        The spells refers to the list of spell dictionaries.
+
+        The purpose of the function is to calculate power ratings or
+        scores for the characters. The spells act as additional points
+        or boosters to those scores.
+
+        The return of the function is the indices of the winning character
+        to help with updating the bracket.
+        """
+        # intializing variables for duel
+
+        spells_copy = spells.copy()
+        battle_stats = dict()
+        spells_used = dict()
+        group_list = list(character_group)
+        # highest_stat = 0
+        # winner = 0
+        # tie = False
+
+        for i, character in enumerate(group_list):
+
+            # calculating character stats
+            character_stats = (
+                int(character["Strength"])
+                + int(character["Power"])
+                + int(character["Intelligence"])
+                + int(character["Emotional Strength"])
+            )
+
+            # the random choice and the popping of that choice
+            # will impede duplicate spells from being used
+            spell_num = random.randint(0, len(spells_copy))
+            if spell_num == len(spells_copy):
+                # this means the character used no spells
+                spell_stats = 0
+                chosen_spell = "no spell"
+                pass
+
+            else:
+                # this means the character used a spell
+                chosen_spell = spells_copy.pop(spell_num)
+                spell_stats = int(chosen_spell["Power"])
+
+            battle_stats[i] = character_stats + spell_stats
+            spells_used[i] = chosen_spell
+
+            print(
+                f"{character['Name']} used {chosen_spell['Name']} "
+                + f"({chosen_spell['Description']})!"
+            )
+            print(
+                f"{character['Name']} has a total power rating of {battle_stats[i]}!\n"
+            )
+
+            # if battle_stats > highest_stat:
+            #     highest_stat = battle_stats
+            #     winner = i
+
+            #### I'm leaving this here in case ####
+
+            # We want to add a tie breaker in the future
+            # elif battle_stats == highest_stat:
+            #     winner = random.choice([0, 1])
+            #     tie = True
+
+        # if tie is True:
+        # print(
+        #     f"{character_group[winner]['Name']} narrowly defeated the " +
+        #     f"{character_group[abs(winner-1)]['Name']}!" +
+        #     f"by using {spells_used[winner]['Name']}!"
+        #     )
+        # print(f"Spell Description: {spells_used[winner]['Description']}"")
+        # )
+        # print(f"Both characters used {spells_used[winner]['Name']}!")
+
+        ### Tie finishes here ###
+
+        winner_key = max(battle_stats, key=battle_stats.get)
+
+        print(
+            f"{character_group[winner_key]['Name']} defeated "
+            + f"{character_group[abs(winner_key-1)]['Name']}!\n\n"
+        )
+
+        # To make the bracket update process simpler
+        # the objective is to return the key (index)
+        # of the winning character
+        return winner_key
+
 
 # intitializing character list
 def read_data(file_name: str) -> list[dict[str, str]]:
@@ -58,4 +154,3 @@ if __name__ == "__main__":
     game1 = Game(selected_chars, spells_dict)
     bracket = game1.bracket_maker()
     game1.print_duel_pairs(bracket)
-
