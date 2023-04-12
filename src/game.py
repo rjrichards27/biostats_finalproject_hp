@@ -24,6 +24,7 @@ class Game:
             print("   ")
 
     def duel(
+        self,
         character_group: tuple[dict[str, str], dict[str, str]],
         spells: list[dict[str, str]],
     ) -> int:
@@ -45,9 +46,6 @@ class Game:
         battle_stats = dict()
         spells_used = dict()
         group_list = list(character_group)
-        # highest_stat = 0
-        # winner = 0
-        # tie = False
 
         for i, character in enumerate(group_list):
 
@@ -65,7 +63,7 @@ class Game:
             if spell_num == len(spells_copy):
                 # this means the character used no spells
                 spell_stats = 0
-                chosen_spell = "no spell"
+                chosen_spell = {"Name": "no spell", "Power": "0", "Description": ""}
                 pass
 
             else:
@@ -84,28 +82,7 @@ class Game:
                 f"{character['Name']} has a total power rating of {battle_stats[i]}!\n"
             )
 
-            # if battle_stats > highest_stat:
-            #     highest_stat = battle_stats
-            #     winner = i
-
-            #### I'm leaving this here in case ####
-
-            # We want to add a tie breaker in the future
-            # elif battle_stats == highest_stat:
-            #     winner = random.choice([0, 1])
-            #     tie = True
-
-        # if tie is True:
-        # print(
-        #     f"{character_group[winner]['Name']} narrowly defeated the " +
-        #     f"{character_group[abs(winner-1)]['Name']}!" +
-        #     f"by using {spells_used[winner]['Name']}!"
-        #     )
-        # print(f"Spell Description: {spells_used[winner]['Description']}"")
-        # )
-        # print(f"Both characters used {spells_used[winner]['Name']}!")
-
-        ### Tie finishes here ###
+        # finding the winner
 
         winner_key = max(battle_stats, key=battle_stats.get)
 
