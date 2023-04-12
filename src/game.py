@@ -48,7 +48,6 @@ class Game:
         group_list = list(character_group)
 
         for i, character in enumerate(group_list):
-
             # calculating character stats
             character_stats = (
                 int(character["Strength"])
