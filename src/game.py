@@ -247,15 +247,13 @@ def give_character_choice(characters: list[dict[str, str]]) -> dict[str, str]:
 
 # reading in data for characters and spells
 hp_characters = (
-    "D:/Duke/Lectures/07_BIO_821_PYTHON_TOOLS/"
-    "biostats_finalproject_hp/data/Harry_Potter_Characters.tsv"
+    "../data/Harry_Potter_Characters.tsv"
 )
 characters_dict = read_data(hp_characters)
 
 # reading in data for characters and spells
 hp_spells = (
-    "D:/Duke/Lectures/07_BIO_821_PYTHON_TOOLS/"
-    "biostats_finalproject_hp/data/Harry_Potter_Spells.tsv"
+    "../data/Harry_Potter_Spells.tsv"
 )
 spells_dict = read_data(hp_spells)
 
