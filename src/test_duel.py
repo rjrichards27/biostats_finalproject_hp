@@ -5,7 +5,7 @@ from game import read_data, Game
 character_fake = [
     ["Name", "Bio", "Strength", "Power", "Intelligence", "Emotional Strength"],
     ["Harry Potter", "Main Character.", "7", "9", "6", "8"],
-    ["Herminone Granger", "One of Harry's best friends.", "5", "8", "9", "7"],
+    ["Hermione Granger", "One of Harry's best friends.", "5", "8", "9", "7"],
 ]
 
 spell_fake = [
@@ -20,7 +20,7 @@ with fake_files(character_fake, spell_fake) as filenames:
     test_characters = read_data(filenames[0])
     test_spells = read_data(filenames[1])
 
-game1 = Game(test_characters, test_spells)
+game1 = Game(test_characters, test_spells, "Harry Potter", 1)
 battle_pair = game1.bracket_maker()
 
 
@@ -32,3 +32,5 @@ def test_duel() -> None:
     that are fated to battle each other."""
 
     assert type(game1.duel(battle_pair[0], test_spells)) is int
+    assert game1.duel(battle_pair[0], test_spells) in range(0, 3)
+    assert game1.duel(battle_pair[0], test_spells) != 2
