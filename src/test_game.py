@@ -1,5 +1,6 @@
 from fake_files import fake_files
-from game import read_data, Game
+from game import read_data, Game, give_character_choice
+import random
 
 character_fake = [
     ["Name", "Bio", "Strength", "Power", "Intelligence", "Emotional Strength"],
@@ -30,10 +31,44 @@ with fake_files(character_fake, spell_fake) as filenames:
     test_characters = read_data(filenames[0])
     test_spells = read_data(filenames[1])
 
-print(test_characters)
+random.seed(1)
+rounds_character_num = {5: 32, 4: 16, 3: 8, 2: 4}
+total_rounds = 2
+selected_chars = random.sample(
+    test_characters, rounds_character_num[total_rounds]
+)
+game1 = Game(selected_chars, test_spells, "Harry Potter", total_rounds)
+battle_pair = game1.bracket_maker()
 
 
 def test_bracket_maker() -> None:
     """Testing the bracket maker function."""
-    game1 = Game(test_characters, test_spells)
-    assert len(game1.bracket_maker()) == 2
+    assert len(battle_pair) == 2
+
+
+def test_duel() -> None:
+    """Test duel mechanic.
+
+    This method tests the duel mechanic of the game.
+    It is designed to work with the pairs of characters
+    that are fated to battle each other."""
+
+    assert type(game1.duel(battle_pair[0], test_spells)) is int
+    assert game1.duel(battle_pair[0], test_spells) in range(0, 3)
+    assert game1.duel(battle_pair[0], test_spells) != 2
+
+
+def test_champion() -> None:
+    """Test the champion of the game."""
+    assert game1.champion == "Harry Potter"
+
+
+def test_play_game() -> None:
+    """Test the play game method."""
+    game1.play_game()
+    assert game1.characters_playing == 1
+
+
+def test_give_character_choice() -> None:
+    """Test the give character choice method."""
+    assert give_character_choice(selected_chars)
