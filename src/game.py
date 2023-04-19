@@ -191,7 +191,7 @@ class Game:
                     )
                     print_statements.append("Final Duel!")
                     print_statements.append(
-                        f"{duel_pairs[0]['Name']} vs. {duel_pairs[1]['Name']}"
+                        f"{self.characters_playing[0]['Name']} vs. {self.characters_playing[1]['Name']}"
                     )
                     print_statements.append("   ")
                 else:
