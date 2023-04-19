@@ -34,9 +34,7 @@ with fake_files(character_fake, spell_fake) as filenames:
 random.seed(1)
 rounds_character_num = {5: 32, 4: 16, 3: 8, 2: 4}
 total_rounds = 2
-selected_chars = random.sample(
-    test_characters, rounds_character_num[total_rounds]
-)
+selected_chars = random.sample(test_characters, rounds_character_num[total_rounds])
 game1 = Game(selected_chars, test_spells, "Harry Potter", total_rounds)
 battle_pair = game1.bracket_maker()
 
