@@ -33,13 +33,14 @@
             <h1 class="text-center" style="color: goldenrod"> Harry Potter Dueling Simulator </h1>
             <p> Break is over! While our survivors enjoy their butterbeer in the break room, let's see the second set of
                 duels</p>
-            <ul>{% for duel in print_results_4round[29:33] %}
-                <li> {{ duel }}</li>
+            <ul>
+                {% for duel in results_4round["Round2Duels"] %}
+                <li> {{ duel }} </li>
                 <br>
                 {% endfor %}
             </ul>
             <br>
-            <p> Press "Next" to see the third round's results. </p>
+            <p> Press "Next" to see the second round's results. </p>
             <p><a href=bracket2_results_4rounds><button style="background-color: maroon; border-color: maroon;"
                         class="btn btn-primary">Next</button></a></p>
         </div>

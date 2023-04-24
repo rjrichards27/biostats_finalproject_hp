@@ -32,21 +32,12 @@
         <div class="col">
             <h1 class="text-center" style="color: goldenrod"> Harry Potter Dueling Simulator </h1>
             <br>
-            <h2> {{ print_results_3round[0] }} </h2>
+            <h2> Prepare your wands! May the best Wizard/Witch win! </h2>
             <br>
-            <p> {{ print_results_3round[20] }} </p>
-            <p> {{ print_results_3round[17] }} </p>
-            <p> {{ print_results_3round[21] }} </p>
-            <ul>{% for duel_result in print_results_3round[22] %}
-                <li> {{ duel_result }} </li>
+            <ul>
+                {% for duel in results_3round["Round2Results"] %}
                 <br>
-                {% endfor %}
-            </ul>
-            <p> {{ print_results_3round[23] }} </p>
-            <p> {{ print_results_3round[18] }} </p>
-            <p> {{ print_results_3round[24] }} </p>
-            <ul>{% for duel_result in print_results_3round[25] %}
-                <li> {{ duel_result }} </li>
+                {{ duel }}
                 <br>
                 {% endfor %}
             </ul>

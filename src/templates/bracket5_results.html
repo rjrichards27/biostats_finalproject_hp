@@ -33,23 +33,24 @@
         <div class="col">
             <h1 class="text-center" style="color: goldenrod"> Harry Potter Dueling Simulator </h1>
             <br>
-            <h2> {{ print_results_5round[126] }} </h2>
+            <h2> Prepare your wands! May the best Wizard/Witch win! </h2>
             <br>
             </ul>
-            <p> {{ print_results_5round[124] }} </p>
-            <ul>{% for duel_result in print_results_5round[127] %}
-                <li> {{ duel_result }} </li>
+            <p> {{ results_5round["final_duel"][0] }} </p>
+            <ul>
+                {% for duel in results_5round["Round5Results"] %}
+                <br>
+                {{ duel }}
                 <br>
                 {% endfor %}
             </ul>
             <br>
-            <h2> {{ print_results_5round[128] }}</h2>
-            <br>
+            <h2> The winner of the tournament is {{ results_5round["tournament_winner"][-1] }}</h2>
             <br>
             <p> You predicted that {{ session.get('pred_winner_input','') }} would win the tournament.</p>
             <br>
             <ul>
-                {% if session.get('pred_winner_input','') == tournament_winner %}
+                {% if session.get('pred_winner_input','') == results_5round["tournament_winner"][0] %}
                 <p> Congratulations! You predicted the tournament winner correctly! </p>
                 {% else %}
                 <p> Sorry! You did not predict the tournament winner correctly.</p>

@@ -32,25 +32,15 @@
         <div class="col">
             <h1 class="text-center" style="color: goldenrod"> Harry Potter Dueling Simulator </h1>
             <br>
-            <h2> {{ print_results_4round[52] }} </h2>
+            <h2> Prepare your wands! May the best Wizard/Witch win! </h2>
             <br>
-            <p> {{ print_results_4round[53] }} </p>
-            <p> {{ print_results_4round[50] }} </p>
-            <p> {{ print_results_4round[54] }} </p>
-            <ul>{% for duel_result in print_results_4round[55] %}
-                <li> {{ duel_result }} </li>
+            <ul>
+                {% for duel in results_4round["Round3Results"] %}
+                <br>
+                {{ duel }}
                 <br>
                 {% endfor %}
             </ul>
-            <p> {{ print_results_4round[56] }} </p>
-            <p> {{ print_results_4round[51] }} </p>
-            <p> {{ print_results_4round[57] }} </p>
-            <ul>{% for duel_result in print_results_4round[58] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            <br>
             <p> Press "Next" to see the the next round's duels. </p>
             <p><a href=bracket4_4rounds><button style="background-color: maroon; border-color: maroon;"
                         class="btn btn-primary">Next</button></a></p>
