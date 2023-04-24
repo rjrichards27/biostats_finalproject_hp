@@ -9,7 +9,8 @@ from typing import Any, Iterable
 
 def get_changed_lines(diff: str) -> dict[str, set[int]]:
     """Get the lines that were changed or added.
-    Adpated from https://stackoverflow.com/a/12179492/13242055
+
+    Adapted from https://stackoverflow.com/a/12179492/13242055
     by John Mellor
     """
     changed = defaultdict(set)
@@ -121,6 +122,7 @@ def generate_report_line(
 
 def generate_report(coverage: dict[str, dict[str, set[int]]]) -> str:
     """Generate report.
+
     EXAMPLE:
     Name             Stmts   Miss  Cover   Missing
     ----------------------------------------------
