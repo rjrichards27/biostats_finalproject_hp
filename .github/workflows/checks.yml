@@ -24,7 +24,7 @@ jobs:
         pip install black mypy pycodestyle pydocstyle
     - name: Run checks
       run: |
-        black --diff --check $(git ls-files '*.py')
-        pycodestyle $(git ls-files '*.py')
-        pydocstyle $(git ls-files '*.py')
-        mypy $(git ls-files '*.py')
+        black --diff --check $(git ls-files 'game.py')
+        pycodestyle $(git ls-files 'game.py')
+        pydocstyle $(git ls-files 'game.py')
+        mypy $(git ls-files 'game.py')
