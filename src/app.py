@@ -9,17 +9,11 @@ app = Flask(__name__)
 app.config["SECRET_KEY"] = "rachel27"
 
 # reading in data for characters and spells
-hp_characters = (
-    "D:/Duke/Lectures/07_BIO_821_PYTHON_TOOLS/"
-    "biostats_finalproject_hp/data/Harry_Potter_Characters.tsv"
-)
+hp_characters = "../data/Harry_Potter_Characters.tsv"
 characters_dict = read_data(hp_characters)
 
 # reading in data for characters and spells
-hp_spells = (
-    "D:/Duke/Lectures/07_BIO_821_PYTHON_TOOLS/"
-    "biostats_finalproject_hp/data/Harry_Potter_Spells.tsv"
-)
+hp_spells = "../data/Harry_Potter_Spells.tsv"
 spells_dict = read_data(hp_spells)
 
 # User inputs how many rounds they want played (MAX OF 5 ROUNDS and MIN OF 2)
