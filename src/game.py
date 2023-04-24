@@ -160,7 +160,7 @@ class Game:
                     )
                 winner_key = self.duel(duel_pairs, self.spells)
                 winner_index = winner_key[0]
-                print_statements.append(winner_key[-1])
+                print_statements.extend(winner_key[-1])
                 if (
                     i + 1 == len(character_pairs_list)
                     and round != self.total_rounds

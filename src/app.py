@@ -64,20 +64,20 @@ tournament_winner_2round = results_2round[-1]
 
 # code for rebdering all html templates
 @app.route("/")
-def home():
+def home() -> str:
     """Render the home page."""
     return render_template("home.html")
 
 
 @app.route("/rounds")
-def rounds():
+def rounds() -> str:
     """Render the rounds page."""
     round_options = ["2", "3", "4", "5"]
     return render_template("rounds.html", round_options=round_options)
 
 
 @app.route("/bracket1", methods=["POST"])
-def bracket1():
+def bracket1() -> str:
     """Render the bracket1 page."""
     round_num_selected = int(request.form["round_num_selected"])
     if round_num_selected == 5:
@@ -96,10 +96,11 @@ def bracket1():
         return render_template(
             "bracket1_2rounds.html", bracket1_2round=bracket1_2round
         )
+    return render_template("bracket1.html", bracket1_5round=bracket1_5round)
 
 
 @app.route("/bracket1_results")
-def bracket1_results():
+def bracket1_results() -> str:
     """Render the bracket1_results page."""
     return render_template(
         "bracket1_results.html",
@@ -109,7 +110,7 @@ def bracket1_results():
 
 
 @app.route("/bracket1_results_4rounds")
-def bracket1_results_4rounds():
+def bracket1_results_4rounds() -> str:
     """Render the bracket1_results_4rounds page."""
     return render_template(
         "bracket1_results_4rounds.html",
@@ -119,7 +120,7 @@ def bracket1_results_4rounds():
 
 
 @app.route("/bracket1_results_3rounds")
-def bracket1_results_3rounds():
+def bracket1_results_3rounds() -> str:
     """Render the bracket1_results_3rounds page."""
     return render_template(
         "bracket1_results_3rounds.html",
@@ -129,7 +130,7 @@ def bracket1_results_3rounds():
 
 
 @app.route("/bracket1_results_2rounds")
-def bracket1_results_2rounds():
+def bracket1_results_2rounds() -> str:
     """Render the bracket1_results_2rounds page."""
     return render_template(
         "bracket1_results_2rounds.html",
@@ -139,7 +140,7 @@ def bracket1_results_2rounds():
 
 
 @app.route("/bracket2")
-def bracket2():
+def bracket2() -> str:
     """Render the bracket2 page."""
     return render_template(
         "bracket2.html",
@@ -149,7 +150,7 @@ def bracket2():
 
 
 @app.route("/bracket2_3rounds")
-def bracket2_3rounds():
+def bracket2_3rounds() -> str:
     """Render the bracket2_3rounds page."""
     return render_template(
         "bracket2_3rounds.html",
@@ -159,7 +160,7 @@ def bracket2_3rounds():
 
 
 @app.route("/bracket2_2rounds")
-def bracket2_2rounds():
+def bracket2_2rounds() -> str:
     """Render the bracket2_2rounds page."""
     return render_template(
         "bracket2_2rounds.html",
@@ -169,7 +170,7 @@ def bracket2_2rounds():
 
 
 @app.route("/bracket2_4rounds")
-def bracket2_4rounds():
+def bracket2_4rounds() -> str:
     """Render the bracket2_4rounds page."""
     return render_template(
         "bracket2_4rounds.html",
@@ -179,7 +180,7 @@ def bracket2_4rounds():
 
 
 @app.route("/bracket2_results")
-def bracket2_results():
+def bracket2_results() -> str:
     """Render the bracket2_results page."""
     return render_template(
         "bracket2_results.html",
@@ -189,7 +190,7 @@ def bracket2_results():
 
 
 @app.route("/bracket2_results_4rounds")
-def bracket2_results_4rounds():
+def bracket2_results_4rounds() -> str:
     """Render the bracket2_results_4rounds page."""
     return render_template(
         "bracket2_results_4rounds.html",
@@ -199,7 +200,7 @@ def bracket2_results_4rounds():
 
 
 @app.route("/bracket2_results_3rounds")
-def bracket2_results_3rounds():
+def bracket2_results_3rounds() -> str:
     """Render the bracket2_results_3rounds page."""
     return render_template(
         "bracket2_results_3rounds.html",
@@ -209,7 +210,7 @@ def bracket2_results_3rounds():
 
 
 @app.route("/bracket2_results_2rounds")
-def bracket2_results_2rounds():
+def bracket2_results_2rounds() -> str:
     """Render the bracket2_results_2rounds page."""
     return render_template(
         "bracket2_results_2rounds.html",
@@ -220,7 +221,7 @@ def bracket2_results_2rounds():
 
 
 @app.route("/bracket3")
-def bracket3():
+def bracket3() -> str:
     """Render the bracket3 page."""
     return render_template(
         "bracket3.html",
@@ -230,7 +231,7 @@ def bracket3():
 
 
 @app.route("/bracket3_4rounds")
-def bracket3_4rounds():
+def bracket3_4rounds() -> str:
     """Render the bracket3_4rounds page."""
     return render_template(
         "bracket3_4rounds.html",
@@ -240,7 +241,7 @@ def bracket3_4rounds():
 
 
 @app.route("/bracket3_3rounds")
-def bracket3_3rounds():
+def bracket3_3rounds() -> str:
     """Render the bracket3_3rounds page."""
     return render_template(
         "bracket3_3rounds.html",
@@ -250,7 +251,7 @@ def bracket3_3rounds():
 
 
 @app.route("/bracket3_results")
-def bracket3_results():
+def bracket3_results() -> str:
     """Render the bracket3_results page."""
     return render_template(
         "bracket3_results.html",
@@ -260,7 +261,7 @@ def bracket3_results():
 
 
 @app.route("/bracket3_results_4rounds")
-def bracket3_results_4rounds():
+def bracket3_results_4rounds() -> str:
     """Render the bracket3_results_4rounds page."""
     return render_template(
         "bracket3_results_4rounds.html",
@@ -270,7 +271,7 @@ def bracket3_results_4rounds():
 
 
 @app.route("/bracket3_results_3rounds")
-def bracket3_results_3rounds():
+def bracket3_results_3rounds() -> str:
     """Render the bracket3_results_3rounds page."""
     return render_template(
         "bracket3_results_3rounds.html",
@@ -281,7 +282,7 @@ def bracket3_results_3rounds():
 
 
 @app.route("/bracket4")
-def bracket4():
+def bracket4() -> str:
     """Render the bracket4 page."""
     return render_template(
         "bracket4.html",
@@ -291,7 +292,7 @@ def bracket4():
 
 
 @app.route("/bracket4_4rounds")
-def bracket4_4rounds():
+def bracket4_4rounds() -> str:
     """Render the bracket4_4rounds page."""
     return render_template(
         "bracket4_4rounds.html",
@@ -301,7 +302,7 @@ def bracket4_4rounds():
 
 
 @app.route("/bracket4_results")
-def bracket4_results():
+def bracket4_results() -> str:
     """Render the bracket4_results page."""
     return render_template(
         "bracket4_results.html",
@@ -311,7 +312,7 @@ def bracket4_results():
 
 
 @app.route("/bracket4_results_4rounds")
-def bracket4_results_4rounds():
+def bracket4_results_4rounds() -> str:
     """Render the bracket4_results_4rounds page."""
     return render_template(
         "bracket4_results_4rounds.html",
@@ -322,7 +323,7 @@ def bracket4_results_4rounds():
 
 
 @app.route("/bracket5")
-def bracket5():
+def bracket5() -> str:
     """Render the bracket5 page."""
     return render_template(
         "bracket5.html",
@@ -332,7 +333,7 @@ def bracket5():
 
 
 @app.route("/bracket5_results")
-def bracket5_results():
+def bracket5_results() -> str:
     """Render the bracket5_results page."""
     return render_template(
         "bracket5_results.html",
@@ -343,18 +344,18 @@ def bracket5_results():
 
 
 @app.route("/saved-pred-winner", methods=["POST"])
-def saved_pred_winner():
+def saved_pred_winner() -> str:
     """Save the prediction of the winner of the tournament."""
     pred_winner_input = request.get_json()["pred_winner_input"]
     session["pred_winner_input"] = pred_winner_input
     return "Prediction saved successfully"
 
 
-@app.route("/restart_simulator")
-def restart_simulator():
-    """Restart the simulator."""
-    session.clear()
-    return redirect(url_for("home"))
+# @app.route("/restart_simulator")
+# def restart_simulator() -> FlaskResponse:
+#     """Restart the simulator."""
+#     session.clear()
+#     return redirect(url_for("home"))
 
 
 if __name__ == "__main__":
