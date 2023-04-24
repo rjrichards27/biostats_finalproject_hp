@@ -134,7 +134,8 @@ class Game:
     def print_winner(self, winner: dict[str, str]) -> str:
         """Print the winner of the game."""
         return (
-            f"The winner of the tournament is {winner['Name']}! " + f"{winner['Bio']}"
+            f"The winner of the tournament is {winner['Name']}! "
+            + f"{winner['Bio']}"
         )
 
     def play_game(self) -> tuple[list[str], str]:
@@ -149,7 +150,6 @@ class Game:
             print_statements.append(
                 "Prepare your wands! May the best Wizard/Witch win!"
             )
-            # print("==================================================")
             for i, duel_pairs in enumerate(character_pairs_list):
                 if round == self.total_rounds:
                     pass
@@ -161,7 +161,10 @@ class Game:
                 winner_key = self.duel(duel_pairs, self.spells)
                 winner_index = winner_key[0]
                 print_statements.append(winner_key[-1])
-                if i + 1 == len(character_pairs_list) and round != self.total_rounds:
+                if (
+                    i + 1 == len(character_pairs_list)
+                    and round != self.total_rounds
+                ):
                     print_statements.append(
                         "=================================================="
                     )
@@ -191,7 +194,8 @@ class Game:
                     )
                     print_statements.append("Final Duel!")
                     print_statements.append(
-                        f"{self.characters_playing[0]['Name']} vs. {self.characters_playing[1]['Name']}"
+                        f"{self.characters_playing[0]['Name']} vs. "
+                        f"{self.characters_playing[1]['Name']}"
                     )
                     print_statements.append("   ")
                 else:
@@ -199,13 +203,13 @@ class Game:
                         "=================================================="
                     )
                     print_statements.append(
-                        f"Break is over! "
-                        f" While our survivors enjoy their butterbeer in the "
+                        f"While our survivors enjoy their butterbeer in the "
                         f"break room, let's see the next set of duels: "
                     )
                     for duel_pairs in character_pairs_list:
                         print_statements.append(
-                            f"{duel_pairs[0]['Name']} vs. {duel_pairs[1]['Name']}"
+                            f"{duel_pairs[0]['Name']} vs. "
+                            f"{duel_pairs[1]['Name']}"
                         )
         return print_statements, winner_name
 
@@ -225,39 +229,18 @@ def read_data(file_name: str) -> list[dict[str, str]]:
     return db_list
 
 
-def give_character_choice(characters: list[dict[str, str]]) -> dict[str, str]:
-    """Give the user a choice of characters to play with."""
-    # printing out the characters
-    print("==================================================")
-    print("Here are the characters you can choose to be your champion: \n")
-    for i, character in enumerate(characters):
-        print(f"{i+1}. {character['Name']}")
-
-    # getting user input for character choice
-    while True:
-        try:
-            character_choice = int(
-                input("\nPlease enter the number of your champion: ")
-            )
-            if character_choice > len(characters) or character_choice < 1:
-                print("Please enter a valid number!")
-            else:
-                print("May your champion make it to the end!\n")
-                print("==================================================")
-                break
-        except ValueError:
-            print("Please enter a valid number!")
-
-    # returning the character choice
-    return characters[character_choice - 1]
-
-
 # reading in data for characters and spells
-hp_characters = "../data/Harry_Potter_Characters.tsv"
+hp_characters = (
+    "D:/Duke/Lectures/07_BIO_821_PYTHON_TOOLS/"
+    "biostats_finalproject_hp/data/Harry_Potter_Characters.tsv"
+)
 characters_dict = read_data(hp_characters)
 
 # reading in data for characters and spells
-hp_spells = "../data/Harry_Potter_Spells.tsv"
+hp_spells = (
+    "D:/Duke/Lectures/07_BIO_821_PYTHON_TOOLS/"
+    "biostats_finalproject_hp/data/Harry_Potter_Spells.tsv"
+)
 spells_dict = read_data(hp_spells)
 
 
@@ -265,22 +248,24 @@ spells_dict = read_data(hp_spells)
 # random.seed(1)
 
 
-if __name__ == "__main__":
-    # running an example game
-    rounds_character_num = {5: 32, 4: 16, 3: 8, 2: 4}
-    # User inputs how many rounds they want played (MAX OF 5 and MIN OF 2)
-    total_rounds = int(
-        input(
-            f"Welcome to the Harry Potter Wizarding "
-            f"Tournament!\nHow many rounds do you want "
-            f"to play? (2-5) "
-        )
-    )
-    selected_chars = random.sample(characters_dict, rounds_character_num[total_rounds])
-    champion = give_character_choice(selected_chars)
-    game1 = Game(selected_chars, spells_dict, total_rounds)
-    bracket = game1.bracket_maker()
-    duels = game1.print_duel_pairs(bracket)
-    print(duels)
-    prints = game1.play_game()
-    print(prints[0])
+# if __name__ == "__main__":
+#     # running an example game
+#     rounds_character_num = {5: 32, 4: 16, 3: 8, 2: 4}
+#     # User inputs how many rounds they want played (MAX OF 5 and MIN OF 2)
+#     total_rounds = int(
+#         input(
+#             f"Welcome to the Harry Potter Wizarding "
+#             f"Tournament!\nHow many rounds do you want "
+#             f"to play? (2-5) "
+#         )
+#     )
+#     selected_chars = random.sample(
+#         characters_dict, rounds_character_num[total_rounds]
+#     )
+#     champion = give_character_choice(selected_chars)
+#     game1 = Game(selected_chars, spells_dict, total_rounds)
+#     bracket = game1.bracket_maker()
+#     duels = game1.print_duel_pairs(bracket)
+#     print(duels)
+#     prints = game1.play_game()
+#     print(prints[0])
