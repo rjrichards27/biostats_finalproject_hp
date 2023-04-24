@@ -222,4 +222,3 @@ def read_data(file_name: str) -> list[dict[str, str]]:
             full_row = dict(zip(headers, value))
             db_list.append(full_row)
     return db_list
-
