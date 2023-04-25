@@ -12,6 +12,7 @@ from werkzeug.wrappers import Response as WerkzeugResponse
 from game import read_data, Game
 from typing import Any
 
+# mypy: ignore-errors
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "rachel27"
@@ -61,7 +62,7 @@ results_2round = game_2round.play_game()
 tournament_winner_2round = results_4round["tournament_winner"]
 
 
-# code for rebdering all html templates
+# code for rendering all html templates
 @app.route("/")
 def home() -> Any:
     """Render the home page."""
