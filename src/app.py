@@ -27,8 +27,10 @@ characters_dict = read_data(hp_characters)
 hp_spells = "../data/Harry_Potter_Spells.tsv"
 spells_dict = read_data(hp_spells)
 
-# User inputs how many rounds they want played (MAX OF 5 ROUNDS and MIN OF 2)
+# User inputs how many rounds they want played
+# (MAX OF 5 ROUNDS and MIN OF 2)
 rounds_character_num = {5: 32, 4: 16, 3: 8, 2: 4}
+
 
 # code for rendering all html templates
 @app.route("/")
@@ -42,7 +44,8 @@ def rounds() -> Any:
     """Render the rounds page."""
     # clears previous session variables
     session.clear()
-    # initializing the number of rounds that are options for the dropdown
+    # initializing the number of rounds
+    # that are options for the dropdown
     round_options = ["2", "3", "4", "5"]
     return render_template("rounds.html", round_options=round_options)
 
@@ -50,17 +53,21 @@ def rounds() -> Any:
 @app.route("/bracket1_5rounds", methods=["POST"])
 def bracket1() -> Any:
     """Render the bracket1 page based on the number of rounds picked."""
-    # getting the number of rounds selected from the dropdown list
+    # getting the number of rounds selected
+    # from the dropdown list
     round_num_selected = int(request.form["round_num_selected"])
-    # rendering the correct first bracket based on the number of rounds selected
+    # rendering the correct first bracket based on
+    # the number of rounds selected
     if round_num_selected == 5:
-        # creating game instance if not already saved in session
+        # creating game instance if not
+        # already saved in session
         if "results_5round" not in session:
             # selecting characters
             selected_chars_5round = random.sample(
                 characters_dict, rounds_character_num[5]
             )
-            # initializing a class for a game with 5 rounds
+            # initializing a class for a
+            # game with 5 rounds
             game_5rounds = Game(selected_chars_5round, spells_dict, 5)
             # getting game's brackets and results
             bracket_5rounds = game_5rounds.bracket_maker()
@@ -72,17 +79,20 @@ def bracket1() -> Any:
                 bracket1_5rounds=bracket1_5rounds,
                 results_5round=session["results_5round"],
             )
-        # if there are already session variables saved the website redirects to the home page
+        # if there are already session variables
+        # saved the website redirects to the home page
         else:
             return redirect(url_for("home"))
     if round_num_selected == 4:
-        # creating game instance if not already saved in session
+        # creating game instance if not
+        # already saved in session
         if "results_4round" not in session:
             # selecting characters
             selected_chars_4round = random.sample(
                 characters_dict, rounds_character_num[4]
             )
-            # initializing a class for a game with 4 rounds
+            # initializing a class for a
+            # game with 4 rounds
             game_4rounds = Game(selected_chars_4round, spells_dict, 4)
             # getting game's brackets and results
             bracket_4rounds = game_4rounds.bracket_maker()
@@ -94,7 +104,8 @@ def bracket1() -> Any:
                 bracket1_4rounds=bracket1_4rounds,
                 results_4round=session["results_4round"],
             )
-        # if there are already session variables saved the website redirects to the home page
+        # if there are already session variables
+        # saved the website redirects to the home page
         else:
             return redirect(url_for("home"))
     if round_num_selected == 3:
@@ -103,7 +114,8 @@ def bracket1() -> Any:
             selected_chars_3round = random.sample(
                 characters_dict, rounds_character_num[3]
             )
-            # initializing a class for a game with 3 rounds
+            # initializing a class for a
+            # game with 3 rounds
             game_3rounds = Game(selected_chars_3round, spells_dict, 3)
             # getting game's brackets and results
             bracket_3rounds = game_3rounds.bracket_maker()
@@ -115,7 +127,8 @@ def bracket1() -> Any:
                 bracket1_3rounds=bracket1_3rounds,
                 results_3round=session["results_3round"],
             )
-        # if there are already session variables saved the website redirects to the home page
+        # if there are already session variables
+        # saved the website redirects to the home page
         else:
             return redirect(url_for("home"))
     if round_num_selected == 2:
@@ -136,13 +149,15 @@ def bracket1() -> Any:
                 bracket1_2rounds=bracket1_2rounds,
                 results_2round=session["results_2round"],
             )
-        # if there are already session variables saved the website redirects to the home page
+        # if there are already session variables
+        # saved the website redirects to the home page
         else:
             return redirect(url_for("home"))
     return render_template("rounds.html")
 
 
-# code to render templates showing the brackets and results for each game
+# code to render templates showing the
+# brackets and results for each game
 @app.route("/bracket1_results_5rounds")
 def bracket1_results_5rounds() -> Any:
     """Render the bracket1_results page."""
