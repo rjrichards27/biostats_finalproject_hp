@@ -36,74 +36,16 @@
         <div class="col">
             <h1 class="text-center" style="color: goldenrod"> Harry Potter Dueling Simulator </h1>
             <br>
-            <h2> {{ print_results_4round[0] }} </h2>
+            <h2> Prepare your wands! May the best Wizard/Witch win! </h2>
             <br>
-            <p> {{ print_results_4round[1] }} </p>
-            <p> {{ bracket1_4round[0] }} </p>
-            <p> {{ print_results_4round[2] }} </p>
-            <ul>{% for duel_result in print_results_4round[3] %}
-                <li> {{ duel_result }} </li>
+            <ul>
+                {% for duel in results_4round["Round1Results"] %}
+                <br>
+                {{ duel }}
                 <br>
                 {% endfor %}
             </ul>
-            <p> {{ print_results_4round[4] }} </p>
-            <p> {{ bracket1_4round[1] }} </p>
-            <p> {{ print_results_4round[5] }} </p>
-            <ul>{% for duel_result in print_results_4round[6] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            <p> {{ print_results_4round[7] }} </p>
-            <p> {{ bracket1_4round[2] }} </p>
-            <p> {{ print_results_4round[8] }} </p>
-            <ul>{% for duel_result in print_results_4round[9] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            <p> {{ print_results_4round[10] }} </p>
-            <p> {{ bracket1_4round[3] }} </p>
-            <p> {{ print_results_4round[11] }} </p>
-            <ul>{% for duel_result in print_results_4round[12] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            <p> {{ print_results_4round[13] }} </p>
-            <p> {{ bracket1_4round[4] }} </p>
-            <p> {{ print_results_4round[14] }} </p>
-            <ul>{% for duel_result in print_results_4round[15] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            <p> {{ print_results_4round[16] }} </p>
-            <p> {{ bracket1_4round[5] }} </p>
-            <p> {{ print_results_4round[17] }} </p>
-            <ul>{% for duel_result in print_results_4round[18] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            </ul>
-            <p> {{ print_results_4round[19] }} </p>
-            <p> {{ bracket1_4round[6] }} </p>
-            <p> {{ print_results_4round[20] }} </p>
-            <ul>{% for duel_result in print_results_4round[21] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            </ul>
-            <p> {{ print_results_4round[22] }} </p>
-            <p> {{ bracket1_4round[7] }} </p>
-            <p> {{ print_results_4round[23] }} </p>
-            <ul>{% for duel_result in print_results_4round[24] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
+            <br>
             <br>
             <p> Press "Next" to see the the next round's duels. </p>
             <p><a href=bracket2_4rounds><button style="background-color: maroon; border-color: maroon;"

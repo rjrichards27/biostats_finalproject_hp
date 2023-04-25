@@ -62,5 +62,6 @@ def test_duel() -> None:
 
 def test_play_game() -> None:
     """Test the play game method."""
-    game1.play_game()
-    assert len(game1.characters_playing) == 4
+    game_dict = game1.play_game()
+    assert len(game1.characters_playing) == 2
+    assert len(game_dict) == 4

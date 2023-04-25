@@ -32,39 +32,12 @@
         <div class="col">
             <h1 class="text-center" style="color: goldenrod"> Harry Potter Dueling Simulator </h1>
             <br>
-            <h2> {{ print_results_5round[94] }} </h2>
+            <h2> Prepare your wands! May the best Wizard/Witch win! </h2>
             <br>
-            <p> {{ print_results_5round[95] }} </p>
-            <p> {{ print_results_5round[90] }} </p>
-            <p> {{ print_results_5round[96] }} </p>
-            <ul>{% for duel_result in print_results_5round[97] %}
-                <li> {{ duel_result }} </li>
+            <ul>
+                {% for duel in results_5round["Round3Results"] %}
                 <br>
-                {% endfor %}
-            </ul>
-            <p> {{ print_results_5round[98] }} </p>
-            <p> {{ print_results_5round[91] }} </p>
-            <p> {{ print_results_5round[99] }} </p>
-            <ul>{% for duel_result in print_results_5round[100] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            </ul>
-            <p> {{ print_results_5round[101] }} </p>
-            <p> {{ print_results_5round[92] }} </p>
-            <p> {{ print_results_5round[102] }} </p>
-            <ul>{% for duel_result in print_results_5round[103] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            </ul>
-            <p> {{ print_results_5round[104] }} </p>
-            <p> {{ print_results_5round[93] }} </p>
-            <p> {{ print_results_5round[105] }} </p>
-            <ul>{% for duel_result in print_results_5round[106] %}
-                <li> {{ duel_result }} </li>
+                {{ duel }}
                 <br>
                 {% endfor %}
             </ul>

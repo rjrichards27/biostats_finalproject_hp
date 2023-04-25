@@ -32,39 +32,12 @@
         <div class="col">
             <h1 class="text-center" style="color: goldenrod"> Harry Potter Dueling Simulator </h1>
             <br>
-            <h2> {{ print_results_4round[33] }} </h2>
+            <h2> Prepare your wands! May the best Wizard/Witch win! </h2>
             <br>
-            <p> {{ print_results_4round[34] }} </p>
-            <p> {{ print_results_4round[29] }} </p>
-            <p> {{ print_results_4round[35] }} </p>
-            <ul>{% for duel_result in print_results_4round[36] %}
-                <li> {{ duel_result }} </li>
+            <ul>
+                {% for duel in results_4round["Round2Results"] %}
                 <br>
-                {% endfor %}
-            </ul>
-            <p> {{ print_results_4round[37] }} </p>
-            <p> {{ print_results_4round[30] }} </p>
-            <p> {{ print_results_4round[38] }} </p>
-            <ul>{% for duel_result in print_results_4round[39] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            </ul>
-            <p> {{ print_results_4round[40] }} </p>
-            <p> {{ print_results_4round[31] }} </p>
-            <p> {{ print_results_4round[41] }} </p>
-            <ul>{% for duel_result in print_results_4round[42] %}
-                <li> {{ duel_result }} </li>
-                <br>
-                {% endfor %}
-            </ul>
-            </ul>
-            <p> {{ print_results_4round[43] }} </p>
-            <p> {{ print_results_4round[32] }} </p>
-            <p> {{ print_results_4round[44] }} </p>
-            <ul>{% for duel_result in print_results_4round[45] %}
-                <li> {{ duel_result }} </li>
+                {{ duel }}
                 <br>
                 {% endfor %}
             </ul>
