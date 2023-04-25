@@ -6,7 +6,7 @@ Authors: Rachel Richards, Eric Rios Soderman, and Wafiakmal Mitah
 ## Description
 This repo is for a Harry Potter dueling tournament application. The application takes in Harry Potter characters and generates a dueling tournament based on the user's inputs (how many rounds they tournament should have). Once the tournament has been created the first round duels will be shown to the user, where the user can then select what character they think will win the tournament. The first round will then be played where one character wins each duel based on their power, intelligence, skills, etc. as well as if they used any bonus spells. The winning characters will then move on to the next round and duel again, each round will be prompted by the user. This will continue until there is only one character left, the winner. The game will then end with stating if the user won, by choosing the correct character to win the tournament, or not. Then the user has a choice to play again, by choosing a tournament with a different number of rounds.
 
-To use the application link the following link: 
+To use the application use the following link: 
 
 ## Format
 The overall game will be a class made up of functions in order to complete the repetetive aspects of the game. For example, there will be a function that determines the winner of each battle. These code files will all be in the "src" folder and will all have their corresponding tests in the "test" folder. The application is created using a Flask App webpage, which is built in the "app.py" file while all of the html template files are in the "templates" folder, contained in the "src" folder. Note there are no tests for the "app.py" file as this was not discussed in class so Patrick said it was okay to not test.
