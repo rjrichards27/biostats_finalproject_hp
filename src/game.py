@@ -13,7 +13,16 @@ class Game:
     total_rounds: int
 
     def bracket_maker(self) -> list[tuple[dict[str, str], dict[str, str]]]:
-        """Create bracket uses selected players."""
+        """
+        Create bracket uses selected players.
+
+        The bracket is a list of tuples. Each tuple contains two
+            dictionaries of characters. The tuples are the duel games
+            that will be played.
+
+        Returns:
+            list: The bracket of duel games.
+        """
         character_pairs = list(
             zip(self.characters_playing[::2], self.characters_playing[1::2])
         )
@@ -22,7 +31,21 @@ class Game:
     def print_duel_pairs(
         self, character_pairs_list: list[tuple[dict[str, str], dict[str, str]]]
     ) -> list[str]:
-        """Print duel games before being played."""
+        """
+        Print duel games before being played.
+
+        The purpose of this function is to print the duel games
+            that will be played in the tournament. The function
+            returns a list of strings that will be printed.
+
+        Args:
+            character_pairs_list: The list of tuples of characters that will
+                be playing each other.
+
+        Returns:
+            list: The list of strings containing all duel pairs that will be
+                printed by flask.
+        """
         duels_list = []
         for duel_pairs in character_pairs_list:
             duel_title = f"{duel_pairs[0]['Name']} vs. {duel_pairs[1]['Name']}"
@@ -35,17 +58,27 @@ class Game:
         character_group: tuple[dict[str, str], dict[str, str]],
         spells: list[dict[str, str]],
     ) -> tuple[int, list[str]]:
-        """Simulate a duel between two characters.
+        """
+        Simulate a duel between two characters.
 
-        The character group is the pair (or multiple) of characters)
+        The character group is the pair (or multiple) of characters.
         The spells refers to the list of spell dictionaries.
 
         The purpose of the function is to calculate power ratings or
-        scores for the characters. The spells act as additional points
-        or boosters to those scores.
+            scores for the characters. The spells act as additional points
+            or boosters to those scores.
 
         The return of the function is the indices of the winning character
-        to help with updating the bracket.
+            to help with updating the bracket.
+
+        Args:
+            character_group: The tuple of characters that will be playing
+                each other.
+            spells: The list of spells that can be used in the duel.
+
+        Returns:
+            tuple: The index of the winning character and the list of strings
+                that will be printed by flask.
         """
         # intializing variables for duel
 
@@ -132,7 +165,15 @@ class Game:
         return winner_key, duel_prints
 
     def print_winner(self, winner: dict[str, list[str]]) -> str:
-        """Print the winner of the game."""
+        """
+        Print the winner of the game.
+
+        Args:
+            winner: The dictionary of the winning character.
+
+        Returns:
+            str: The string of winner that will be printed by flask.
+        """
         return (
             f"The winner of the tournament is {winner['Name']}! "
             + f"{winner['Bio']}"
@@ -211,7 +252,15 @@ class Game:
 
 # intitializing character list
 def read_data(file_name: str) -> list[dict[str, str]]:
-    """Read data into a list of dictionaries."""
+    """
+    Read data into a list of dictionaries.
+
+    Args:
+        file_name: The path of the file to be read.
+
+    Returns:
+        list: A list of dictionaries containing data from file.
+    """
     db_list = []
     with open(file_name, "r") as file:
         headers = file.readline().strip().split(",")
