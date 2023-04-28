@@ -108,7 +108,6 @@ class Game:
                     "Power": "0",
                     "Description": "too scared to use a spell",
                 }
-                pass
 
             else:
                 # this means the character used a spell
@@ -146,7 +145,7 @@ class Game:
             duel_prints.append(
                 (
                     f"{character_group[winner_key]['Name']} cast the spell "
-                    + f"first and defeated "
+                    + "first and defeated "
                     + f"{character_group[abs(winner_key-1)]['Name']}!"
                 )
             )
@@ -184,19 +183,19 @@ class Game:
         # creating the bracket
         character_pairs_list = self.bracket_maker()
         # playing the bracket
-        round = 1
+        game_round = 1
         temp_winners = []
         results_dict = {}
-        while round <= self.total_rounds:
+        while game_round <= self.total_rounds:
             print_statements = []
             for i, duel_pairs in enumerate(character_pairs_list):
-                if round == self.total_rounds:
+                if game_round == self.total_rounds:
                     pass
                 else:
                     print_statements.append(
                         "-------------------------------------------------"
                     )
-                    print_statements.append(f"Round {round}, Duel {i+1}")
+                    print_statements.append(f"Round {game_round}, Duel {i+1}")
                     print_statements.append(
                         "-------------------------------------------------"
                     )
@@ -205,16 +204,16 @@ class Game:
                 print_statements.extend(winner_key[-1])
                 if (
                     i + 1 == len(character_pairs_list)
-                    and round != self.total_rounds
+                    and game_round != self.total_rounds
                 ):
                     print_statements.append(
                         "-------------------------------------------------"
                     )
-                    print_statements.append(f"Round {round} is over!")
+                    print_statements.append(f"Round {game_round} is over!")
                 else:
                     pass
                 temp_winners.append(duel_pairs[winner_index])
-            results_dict["Round" + str(round) + "Results"] = print_statements
+            results_dict["Round" + str(game_round) + "Results"] = print_statements
             if len(temp_winners) == 1:
                 results_dict["tournament_winner"] = [
                     temp_winners[0]["Name"],
@@ -228,7 +227,7 @@ class Game:
                 self.characters_playing = temp_winners
                 character_pairs_list = self.bracket_maker()
                 temp_winners = []
-                round += 1
+                game_round += 1
                 if len(character_pairs_list) == 1:
                     results_dict["final_duel"] = [
                         (
@@ -244,7 +243,7 @@ class Game:
                             f"{duel_pairs[1]['Name']}"
                         )
                     results_dict[
-                        "Round" + str(round) + "Duels"
+                        "Round" + str(game_round) + "Duels"
                     ] = round_duels_list
 
         return results_dict

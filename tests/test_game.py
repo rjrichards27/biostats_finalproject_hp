@@ -20,10 +20,10 @@ spell_fake = [
 def test_reading_data() -> None:
     """Testing the lengths of data after parsing."""
     # initializing variables
-    with fake_files(character_fake, spell_fake) as filenames:
+    with fake_files(character_fake, spell_fake) as filenames_0:
         # testing total length of tuple
-        assert len(read_data(filenames[0])) == 4
-        assert len(read_data(filenames[1])) == 2
+        assert len(read_data(filenames_0[0])) == 4
+        assert len(read_data(filenames_0[1])) == 2
 
 
 # initializing fake data for tests
