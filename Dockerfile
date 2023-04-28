@@ -32,11 +32,15 @@
 
 # FROM python:3.10.8-slim-bullseye
 # FROM public.ecr.aws/lambda/python:3.9.2022.12.02.20, keeping this one in case if needed
-FROM public.ecr.aws/lambda/python:3.8
+# FROM public.ecr.aws/lambda/python:3.8
+FROM public.ecr.aws/lambda/python:3.10
 
 RUN mkdir -p /app /app/templates
-COPY . src/*.py /app/
-COPY . src/templates/*.html /app/templates/
+# COPY . src/app.py /app/
+# COPY . src/templates/*.html /app/templates/
+# COPY . src/*.py /app/
+# COPY . src/templates/*.html /app/templates/
+COPY . appX.py /app/
 WORKDIR /app
 RUN pip install -r requirements.txt
 EXPOSE 8080

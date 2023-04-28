@@ -213,7 +213,9 @@ class Game:
                 else:
                     pass
                 temp_winners.append(duel_pairs[winner_index])
-            results_dict["Round" + str(game_round) + "Results"] = print_statements
+            results_dict[
+                "Round" + str(game_round) + "Results"
+            ] = print_statements
             if len(temp_winners) == 1:
                 results_dict["tournament_winner"] = [
                     temp_winners[0]["Name"],

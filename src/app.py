@@ -322,4 +322,4 @@ def restart_simulator() -> WerkzeugResponse:
 
 if __name__ == "__main__":
     # running app
-    app.run(debug=True)
+    app.run(debug=True, port=8080)

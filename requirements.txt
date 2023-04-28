@@ -2,3 +2,7 @@ pytest
 flask
 coverage
 mypy
+black
+pylint
+pydocstyle
+pycodestyle
