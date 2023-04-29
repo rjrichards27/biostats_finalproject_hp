@@ -23,7 +23,8 @@ build:
 
 run:
 	#run docker
-	docker run -p 127.0.0.1:8080:8080 a7749d762a26
+	docker run -p 127.0.0.1:8080:8080 75117503be66
+	# docker run -itp 127.0.0.1:8080:8080 e66b77c1c0b6
 	# docker run -p 127.0.0.1:8080:8080 165c2ea5b6c1
 
 deploy:

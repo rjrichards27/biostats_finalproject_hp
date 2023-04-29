@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <style>
+        .btn {
+            margin: 10px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        p,
+        div {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="col">
+            <h1 class="text-center" style="color: goldenrod"> Harry Potter Dueling Simulator </h1>
+            <p class=""> Select the number of rounds you'd like to have in the tournament. </p>
+            <form method="post" action="{{url_for('bracket1')}}">
+                <select name="round_num_selected">
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button type="submit" style="background-color: maroon; border-color: maroon;" value=""
+                    class="btn btn-primary">Next</button>
+            </form>
+            <br />
+
+</body>
+
+</html>

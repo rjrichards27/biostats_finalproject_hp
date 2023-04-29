@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <style>
+        .btn {
+            margin: 10px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        p,
+        div {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="col">
+            <h1 class="text-center" style="color: goldenrod"> Harry Potter Dueling Simulator </h1>
+            <p> First Round Duels</p>
+            <ul>
+                {% for duel in bracket1_5rounds %}
+                <li> {{ duel }} </li>
+                <br>
+                {% endfor %}
+            </ul>
+            <br>
+            <p> Enter the character you predict will win the whole tournament below and press "Save" to save your
+                prediction.
+                (Please enter their full name, as shown above.)</p>
+            <formid="pred-winner">
+                <label for="pred_winner">Predicted Winner:</label>
+                <input type="text" id="pred_winner" name="user_pred_winner">
+                <button style="background-color: maroon; border-color: maroon;" class="btn btn-primary" type="button"
+                    id="save-button">Save</button>
+                </form>
+                <script>
+                    var button = document.getElementById("save-button");
+
+                    button.addEventListener("click", function () {
+                        var inputField = document.getElementById("pred_winner");
+                        var inputData = inputField.value;
+
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("POST", "{{ url_for('saved_pred_winner') }}");
+                        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                        xhr.onreadystatechange = function () {
+                            if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                                console.log("Prediction saved successfully");
+                            }
+                        };
+                        xhr.send(JSON.stringify({ "pred_winner_input": inputData }));
+                    });
+                </script>
+                <br>
+                <br>
+                <p> Press "Next" to see the first round's results. </p>
+                <p><a
+                        href="{{ url_for('bracket1_results_5rounds', sim_game=sim_game, starting_bracket=starting_bracket) }}">
+                        <button style="background-color: maroon; border-color: maroon;"
+                            class="btn btn-primary">Next</button>
+                    </a></p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+
+    <style>
+        .btn {
+            margin: 10px;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        p,
+        div {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col">
+            <h1 class="text-center" style="color: goldenrod"> Harry Potter Dueling Simulator </h1>
+            <br>
+            <h2> Prepare your wands! May the best Wizard/Witch win! </h2>
+            <br>
+            </ul>
+            <p> {{ session["results_5round"]["final_duel"][0] }} </p>
+            <ul>
+                {% for duel in session["results_5round"]["Round5Results"] %}
+                <br>
+                {{ duel }}
+                <br>
+                {% endfor %}
+            </ul>
+            <br>
+            <h2> The winner of the tournament is {{ session["results_5round"]["tournament_winner"][-1] }}</h2>
+            <br>
+            <p> You predicted that {{ session.get('pred_winner_input','') }} would win the tournament.</p>
+            <br>
+            <ul>
+                {% if session.get('pred_winner_input','') == session["results_5round"]["tournament_winner"][0] %}
+                <p> Congratulations! You predicted the tournament winner correctly! </p>
+                {% else %}
+                <p> Sorry! You did not predict the tournament winner correctly.</p>
+                {% endif %}
+            </ul>
+            <br>
+            <p> Press button below to play again. </p>
+            <p><a href=rounds>
+                    <button style="background-color: maroon; border-color: maroon;" class="btn btn-primary">Play
+                        again!</button>
+                </a></p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -35,14 +35,19 @@
 # FROM public.ecr.aws/lambda/python:3.8
 FROM public.ecr.aws/lambda/python:3.10
 
+# RUN mkdir -p /app
 RUN mkdir -p /app /app/templates
-# COPY . src/app.py /app/
+COPY src/templates/*.html /app/templates/
+COPY . appX.py /app/
+RUN ls -la /app
 # COPY . src/templates/*.html /app/templates/
 # COPY . src/*.py /app/
 # COPY . src/templates/*.html /app/templates/
-COPY . appX.py /app/
+# COPY . appX.py /app/
+# WORKDIR /app
 WORKDIR /app
 RUN pip install -r requirements.txt
+# WORKDIR /app/src
 EXPOSE 8080
-CMD [ "app.py" ]
+CMD [ "appX.py" ]
 ENTRYPOINT [ "python" ]

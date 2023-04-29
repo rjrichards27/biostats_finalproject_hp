@@ -9,7 +9,7 @@ from flask import (
     redirect,
 )
 from werkzeug.wrappers import Response as WerkzeugResponse
-from game import read_data, Game
+from src.game import read_data, Game
 from typing import Any
 
 # mypy: ignore-errors
