@@ -53,3 +53,12 @@ cd src
 ```
 python app.py
 ```
+
+** Bonus Step 6: Let the Duels Begin!!!
+
+![image](https://user-images.githubusercontent.com/70504872/235370213-f4c202ae-eb22-446f-9015-db6c00dd6d45.png)
+
+---
+
+![image](https://user-images.githubusercontent.com/70504872/235370236-78faad2e-872c-4bd2-a6c9-9436ec59d945.png)
+
