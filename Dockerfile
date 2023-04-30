@@ -33,8 +33,9 @@
 # FROM python:3.10.8-slim-bullseye
 # FROM public.ecr.aws/lambda/python:3.9.2022.12.02.20, keeping this one in case if needed
 # FROM public.ecr.aws/lambda/python:3.8
-FROM public.ecr.aws/lambda/python:3.10
-
+# FROM public.ecr.aws/lambda/python:3.10.8
+# FROM public.ecr.aws/lambda/python:3.11-preview.2023.04.17.20
+FROM public.ecr.aws/lambda/python:3.9
 # RUN mkdir -p /app
 RUN mkdir -p /app /app/templates
 COPY src/templates/*.html /app/templates/
@@ -48,6 +49,8 @@ RUN ls -la /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 # WORKDIR /app/src
+ENV PORT=8080
 EXPOSE 8080
 CMD [ "appX.py" ]
 ENTRYPOINT [ "python" ]
+# CMD ["python", "app.py"]
