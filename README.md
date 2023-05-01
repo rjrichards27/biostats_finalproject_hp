@@ -51,7 +51,7 @@ cd biostats_finalproject_hp
 **Step 3: Install Requirements.**
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 **Step 4: Navigate your way into the src file.**
