@@ -20,11 +20,11 @@ app.config["SECRET_KEY"] = "rachel27"
 
 
 # reading in data for characters and spells
-hp_characters = "./data/Harry_Potter_Characters.tsv"
+hp_characters = "../data/Harry_Potter_Characters.tsv"
 characters_dict = read_data(hp_characters)
 
 # reading in data for characters and spells
-hp_spells = "./data/Harry_Potter_Spells.tsv"
+hp_spells = "../data/Harry_Potter_Spells.tsv"
 spells_dict = read_data(hp_spells)
 
 # User inputs how many rounds they want played
