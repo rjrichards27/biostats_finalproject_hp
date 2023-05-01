@@ -60,7 +60,7 @@ pip install requirements.txt
 cd src
 ```
 
-**Step 5: Run Application file.**
+**Step 5: Run Application file and copy link.**
 
 ```
 python app.py
