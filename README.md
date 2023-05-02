@@ -9,6 +9,15 @@ This repo is for a Harry Potter dueling tournament application. The application 
 ## Format
 The overall game will be a class made up of functions in order to complete the repetetive aspects of the game. For example, there will be a function that determines the winner of each battle. These code files will all be in the "src" folder and will all have their corresponding tests in the "test" folder. Where the 'game.py' is the code for the building of the game and is tested. The application is created using a Flask App webpage, which is built in the "app.py" file while all of the html template files are in the "templates" folder, contained in the "src" folder. Note there are no tests for the "app.py" file as this was not discussed in class so Patrick said it was okay to not test.
 
+
+## Workload and Steps (detailed in Issues)
+1. Create Harry Potter character and spells dictionaries
+2. Generate a tournament bracket
+3. Write code for determining a duel's winner
+  * Determine how bonus spells are used
+4. Write Code for completing the remaining tournament round and identifying the winner
+5. Convert code to an application that utilizes the user's input
+
 ## Testing
 To test the code use the below code.
 
@@ -23,16 +32,7 @@ coverage report -m
 Note: Total coverage is low because the coverage for 'app.py' is 0%, while coverage for 'game.py' is close to 100%. This is becuase the code for the Flask App is not tested, as discussed with Patrick, therefore resulting in a low total coverage.
 
 
-## Workload and Steps (detailed in Issues)
-1. Create Harry Potter character and spells dictionaries
-2. Generate a tournament bracket
-3. Write code for determining a duel's winner
-  * Determine how bonus spells are used
-4. Write Code for completing the remaining tournament round and identifying the winner
-5. Convert code to an application that utilizes the user's input
-
-
-## Steps to use the website
+# Steps to use the website
 
 If you are interested in using the application, use the below code.
 
