@@ -32,7 +32,7 @@ Note: Total coverage is low because the coverage for 'app.py' is 0%, while cover
 5. Convert code to an application that utilizes the user's input
 
 
-## Replicating the Repo
+## Steps to use the website
 
 If you are interested in using the application, use the below code.
 
